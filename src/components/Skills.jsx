@@ -25,7 +25,7 @@ const SkillTag = ({ icon: Icon, name, color, index }) => (
 
 const Skills = () => {
     return (
-        <section id="skills" style={{ padding: '80px 0', background: 'linear-gradient(to bottom, var(--bg-primary), #0d121d)' }}>
+        <section id="skills" className="section-padding" style={{ background: 'linear-gradient(to bottom, var(--bg-primary), #0d121d)' }}>
             <div className="container">
                 <h2 className="section-title">Technical Skills</h2>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

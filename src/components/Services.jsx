@@ -70,7 +70,7 @@ const Services = () => {
     ];
 
     return (
-        <section id="services" style={{ padding: '80px 0' }}>
+        <section id="services" className="section-padding">
             <div className="container">
                 <h2 className="section-title">My Services</h2>
                 <p className="section-subtitle">

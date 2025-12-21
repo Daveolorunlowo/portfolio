@@ -3,21 +3,15 @@ import { motion } from 'framer-motion';
 
 const Contact = () => {
     return (
-        <section id="contact" style={{ padding: '80px 0 40px' }}>
+        <section id="contact" className="section-padding" style={{ paddingBottom: '40px' }}>
             <div className="container">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    style={{
-                        background: 'var(--bg-tertiary)',
-                        padding: '4rem 2rem',
-                        borderRadius: '24px',
-                        textAlign: 'center',
-                        maxWidth: '900px',
-                        margin: '0 auto 5rem'
-                    }}>
+                    className="contact-card"
+                >
                     <h2 style={{ fontSize: '2.5rem', fontWeight: '700', marginBottom: '1rem' }}>Let's work together</h2>
                     <p style={{ color: 'var(--text-secondary)', maxWidth: '500px', margin: '0 auto 2.5rem' }}>
                         Have a project in mind or just want to say hi? Feel free to reach out. I'm always open to discussing new projects and creative ideas.

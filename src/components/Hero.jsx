@@ -23,7 +23,7 @@ const Hero = () => {
             alignItems: 'center',
             background: 'radial-gradient(circle at top right, rgba(59, 130, 246, 0.1) 0%, transparent 40%)'
         }}>
-            <div className="container" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '4rem', alignItems: 'center' }}>
+            <div className="container hero-grid">
 
                 <motion.div
                     variants={containerVariants}
@@ -44,17 +44,17 @@ const Hero = () => {
                         ● AVAILABLE FOR WORK
                     </motion.div>
 
-                    <motion.h1 variants={itemVariants} style={{ fontSize: '4.5rem', lineHeight: '1.1', fontWeight: '700', marginBottom: '1rem' }}>
+                    <motion.h1 variants={itemVariants} className="hero-title">
                         I'm <br />
                         <span className="text-gradient">Dave</span>
                     </motion.h1>
 
-                    <motion.p variants={itemVariants} style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: '500px', marginBottom: '2.5rem', lineHeight: '1.8' }}>
+                    <motion.p variants={itemVariants} className="hero-subtitle">
                         Software Engineer specializing in building exceptional digital experiences.
                         I build robust and scalable web solutions.
                     </motion.p>
 
-                    <motion.div variants={itemVariants} style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+                    <motion.div variants={itemVariants} className="hero-buttons">
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
