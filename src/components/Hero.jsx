@@ -51,7 +51,7 @@ const Hero = () => {
 
                     <motion.p variants={itemVariants} style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: '500px', marginBottom: '2.5rem', lineHeight: '1.8' }}>
                         Software Engineer specializing in building exceptional digital experiences.
-                        I craft robust and scalable web solutions.
+                        I build robust and scalable web solutions.
                     </motion.p>
 
                     <motion.div variants={itemVariants} style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
@@ -92,7 +92,6 @@ const Hero = () => {
                         </div>
                     </motion.div>
                 </motion.div>
-
             </div>
         </section>
     );
