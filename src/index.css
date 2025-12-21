@@ -2,16 +2,16 @@
   --bg-primary: #0a0e17;
   --bg-secondary: #0F172A;
   --bg-tertiary: #1E293B;
-  
+
   --text-primary: #F8FAFC;
   --text-secondary: #94A3B8;
   --text-accent: #38BDF8;
-  
+
   --primary: #3B82F6;
   --primary-hover: #2563EB;
-  
+
   --gradient-main: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
-  
+
   --font-family: 'Outfit', sans-serif;
 }
 
@@ -92,6 +92,24 @@ img {
   background: var(--gradient-main);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
   color: transparent;
+}
+
+/* Responsive Navigation */
+.nav-links-desktop {
+  display: flex;
+}
+
+.mobile-menu-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav-links-desktop {
+    display: none !important;
+  }
+
+  .mobile-menu-toggle {
+    display: block !important;
+  }
 }
