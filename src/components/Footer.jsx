@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
     return (
@@ -16,11 +16,18 @@ const Footer = () => {
                 </div>
 
                 <div className="footer-socials">
-                    <FaGithub style={{ color: 'var(--text-secondary)', fontSize: '1.2rem' }} />
-                    <FaLinkedin style={{ color: 'var(--text-secondary)', fontSize: '1.2rem' }} />
+                    <a href="https://github.com/Davolily" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
+                        <FaGithub style={{ color: 'var(--text-secondary)', fontSize: '1.2rem' }} />
+                    </a>
+                    <a href="https://linkedin.com/in/dave-olorunlowo-b9248339b/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
+                        <FaLinkedin style={{ color: 'var(--text-secondary)', fontSize: '1.2rem' }} />
+                    </a>
+                    <a href="https://x.com/Dave45O" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
+                        <FaTwitter style={{ color: 'var(--text-secondary)', fontSize: '1.2rem' }} />
+                    </a>
                 </div>
             </div>
-        </footer>
+        </footer >
     );
 };
 

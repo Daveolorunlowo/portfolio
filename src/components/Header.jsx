@@ -14,7 +14,7 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = ['Services', 'Skills', 'Contact'];
+  const navLinks = ['Services', 'Projects', 'Skills', 'Contact'];
 
   const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 

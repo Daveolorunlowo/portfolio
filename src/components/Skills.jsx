@@ -1,5 +1,6 @@
 import { FaReact, FaNodeJs, FaPython, FaFigma, FaGitAlt, FaAws } from 'react-icons/fa';
-import { SiTypescript, SiAdobe } from 'react-icons/si';
+import { SiTypescript, SiAdobe, SiAdobephotoshop, SiTailwindcss, SiFramer } from 'react-icons/si';
+import { VscCode } from 'react-icons/vsc';
 import { motion } from 'framer-motion';
 
 const SkillTag = ({ icon: Icon, name, color, index }) => (
@@ -49,9 +50,13 @@ const Skills = () => {
                     </h3>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
                         <SkillTag icon={FaFigma} name="Figma" color="#F24E1E" index={5} />
-                        <SkillTag icon={SiAdobe} name="Adobe XD" color="#FF61F6" index={6} />
-                        <SkillTag icon={FaAws} name="AWS" color="#FF9900" index={7} />
-                        <SkillTag icon={FaGitAlt} name="Git" color="#F05032" index={8} />
+                        <SkillTag icon={SiAdobephotoshop} name="Photoshop" color="#31A8FF" index={6} />
+                        <SkillTag icon={SiAdobe} name="Adobe XD" color="#FF61F6" index={7} />
+                        <SkillTag icon={VscCode} name="VS Code" color="#007ACC" index={8} />
+                        <SkillTag icon={SiTailwindcss} name="Tailwind CSS" color="#38B2AC" index={9} />
+                        <SkillTag icon={SiFramer} name="Framer Motion" color="#0055FF" index={10} />
+                        <SkillTag icon={FaAws} name="AWS" color="#FF9900" index={11} />
+                        <SkillTag icon={FaGitAlt} name="Git" color="#F05032" index={12} />
                     </div>          </div>
             </div>
         </section>

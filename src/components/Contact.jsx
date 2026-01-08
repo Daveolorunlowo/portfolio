@@ -18,22 +18,26 @@ const Contact = () => {
                     </p>
 
                     <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <button style={{
-                            background: 'var(--primary)',
-                            color: 'white',
-                            padding: '1rem 2rem',
-                            borderRadius: '8px',
-                            fontWeight: '600',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.8rem',
-                            transition: 'background 0.3s'
-                        }}
-                            onMouseEnter={(e) => e.target.style.background = 'var(--primary-hover)'}
-                            onMouseLeave={(e) => e.target.style.background = 'var(--primary)'}
-                        >
-                            <FaEnvelope /> Say Hello
-                        </button>
+                        <a href="mailto:davereebat@gmail.com" style={{ textDecoration: 'none' }}>
+                            <button style={{
+                                background: 'var(--primary)',
+                                color: 'white',
+                                padding: '1rem 2rem',
+                                borderRadius: '8px',
+                                fontWeight: '600',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '0.8rem',
+                                transition: 'background 0.3s',
+                                border: 'none',
+                                cursor: 'pointer'
+                            }}
+                                onMouseEnter={(e) => e.target.style.background = 'var(--primary-hover)'}
+                                onMouseLeave={(e) => e.target.style.background = 'var(--primary)'}
+                            >
+                                <FaEnvelope /> Say Hello
+                            </button>
+                        </a>
 
                         <button style={{
                             background: 'rgba(255,255,255,0.1)',

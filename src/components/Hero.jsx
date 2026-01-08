@@ -58,22 +58,31 @@ const Hero = () => {
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
+                            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
                             style={{
                                 background: 'white',
                                 color: 'black',
                                 padding: '0.8rem 2rem',
                                 borderRadius: '4px',
                                 fontWeight: '600',
-                                fontSize: '1rem'
+                                fontSize: '1rem',
+                                border: 'none',
+                                cursor: 'pointer'
                             }}>
                             View My Work
                         </motion.button>
 
                         <div style={{ display: 'flex', gap: '1rem' }}>
-                            {[FaGithub, FaLinkedin, FaTwitter].map((Icon, idx) => (
+                            {[
+                                { Icon: FaGithub, href: 'https://github.com/Davolily' },
+                                { Icon: FaLinkedin, href: 'https://linkedin.com/in/dave-olorunlowo-b9248339b/' },
+                                { Icon: FaTwitter, href: 'https://x.com/Dave45O' }
+                            ].map(({ Icon, href }, idx) => (
                                 <motion.a
                                     key={idx}
-                                    href="#"
+                                    href={href}
+                                    target={href.startsWith('http') ? "_blank" : "_self"}
+                                    rel={href.startsWith('http') ? "noopener noreferrer" : ""}
                                     whileHover={{ y: -5, color: 'var(--primary)' }}
                                     style={{
                                         width: '40px',
