@@ -4,15 +4,14 @@ import { motion } from 'framer-motion';
 
 const ServiceCard = ({ icon: Icon, title, desc, delay }) => (
     <motion.div
+        className="glass-panel"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        whileHover={{ scale: 1.05, boxShadow: "0px 10px 30px rgba(59, 130, 246, 0.2)" }}
+        whileHover={{ scale: 1.05 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: delay }}
         style={{
-            background: 'var(--bg-tertiary)',
             padding: '2rem',
-            borderRadius: '16px',
             transition: 'all 0.3s',
             cursor: 'pointer',
             position: 'relative',
@@ -20,15 +19,16 @@ const ServiceCard = ({ icon: Icon, title, desc, delay }) => (
         }}
         onMouseEnter={(e) => {
             e.currentTarget.style.transform = 'translateY(-10px)';
-            e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.5)';
+            const primary = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim();
+            e.currentTarget.style.boxShadow = `0 10px 30px ${primary}40`;
         }}
         onMouseLeave={(e) => {
             e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = 'none';
+            e.currentTarget.style.boxShadow = '';
         }}
     >
         <div style={{
-            background: 'rgba(59, 130, 246, 0.1)',
+            background: 'color-mix(in srgb, var(--primary) 10%, transparent)',
             width: '50px',
             height: '50px',
             borderRadius: '12px',

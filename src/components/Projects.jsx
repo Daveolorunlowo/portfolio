@@ -9,16 +9,16 @@ const ProjectCard = ({ title, desc, tags, link, github, icon: Icon, color, delay
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: delay }}
         style={{
-            background: 'rgba(30, 41, 59, 0.7)', // Darker glass base
-            backdropFilter: 'blur(10px)',
+            background: 'color-mix(in srgb, var(--primary) 5%, rgba(10, 14, 23, 0.6))',
+            backdropFilter: 'blur(20px)',
             borderRadius: '20px',
             overflow: 'hidden',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
+            border: '1px solid color-mix(in srgb, var(--primary) 20%, rgba(255, 255, 255, 0.15))',
             position: 'relative',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+            boxShadow: '0 10px 40px 0 rgba(0, 0, 0, 0.5)',
             height: '100%'
         }}
         onMouseEnter={(e) => {
@@ -26,7 +26,8 @@ const ProjectCard = ({ title, desc, tags, link, github, icon: Icon, color, delay
             e.currentTarget.style.boxShadow = `0 20px 40px -5px ${color}20`; // Colored glow
         }}
         onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+            const primary = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim();
+            e.currentTarget.style.borderColor = `color-mix(in srgb, ${primary} 20%, rgba(255, 255, 255, 0.15))`;
             e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
         }}
     >
@@ -36,7 +37,7 @@ const ProjectCard = ({ title, desc, tags, link, github, icon: Icon, color, delay
             background: `linear-gradient(90deg, ${color}, transparent)`
         }} />
 
-        <div style={{ padding: '2.5rem' }}>
+        <div style={{ padding: '2.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2rem' }}>
                 <div style={{
                     background: `${color}15`, // Very subtle tint
@@ -109,15 +110,7 @@ const Projects = () => {
             tags: ['React', 'Node.js', 'Vite', 'Tailwind'],
             link: 'https://intersync.vercel.app/',
             icon: FaUserGraduate,
-            color: '#3B82F6' // Blue
-        },
-        {
-            title: 'Jumia Navy',
-            desc: 'Jumia General Store - Your one-stop shop for everything! A comprehensive e-commerce experience.',
-            tags: ['React', 'Vite', 'Commerce'],
-            link: 'https://jumia-navy.vercel.app/',
-            icon: FaShoppingCart,
-            color: '#1e3a8a' // Navy Blue
+            color: 'var(--primary)'
         },
         {
             title: 'Snype',
@@ -125,23 +118,20 @@ const Projects = () => {
             tags: ['React', 'Automation', 'Analytics', 'SaaS'],
             link: 'https://snype-theta.vercel.app/',
             icon: FaBolt,
-            color: '#F59E0B' // Amber/Orange
+            color: 'var(--text-accent)'
+        },
+        {
+            title: 'Jumia Navy',
+            desc: 'Jumia General Store - Your one-stop shop for everything! A comprehensive e-commerce experience.',
+            tags: ['React', 'Vite', 'Commerce'],
+            link: 'https://jumia-navy.vercel.app/',
+            icon: FaShoppingCart,
+            color: 'var(--primary)'
         }
     ];
 
     return (
         <section id="projects" className="section-padding" style={{ position: 'relative' }}>
-            {/* Background Decoration */}
-            <div style={{
-                position: 'absolute',
-                top: '0',
-                left: '0',
-                width: '100%',
-                height: '100%',
-                background: 'linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%)',
-                zIndex: -1
-            }} />
-
             <div className="container">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

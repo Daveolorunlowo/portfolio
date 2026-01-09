@@ -21,7 +21,7 @@ const Hero = () => {
             minHeight: '100vh',
             display: 'flex',
             alignItems: 'center',
-            background: 'radial-gradient(circle at top right, rgba(59, 130, 246, 0.1) 0%, transparent 40%)'
+            background: 'radial-gradient(circle at top right, color-mix(in srgb, var(--primary) 10%, transparent) 0%, transparent 40%)'
         }}>
             <div className="container hero-grid">
 
@@ -29,10 +29,12 @@ const Hero = () => {
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
+                    className="glass-panel"
+                    style={{ padding: '3rem', borderRadius: '24px' }}
                 >
                     <motion.div variants={itemVariants} style={{
                         display: 'inline-block',
-                        background: 'rgba(59, 130, 246, 0.1)',
+                        background: 'color-mix(in srgb, var(--primary) 10%, transparent)',
                         color: 'var(--primary)',
                         padding: '0.4rem 1rem',
                         borderRadius: '20px',
