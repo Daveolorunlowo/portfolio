@@ -60,9 +60,9 @@ const AnimatedBackground = () => {
         const season = getSeason();
         const day = isDayTime();
 
-        if (season === 'WINTER') return '/sounds/wind.mp3';
-        if (day) return '/sounds/birds.mp3';
-        return '/sounds/crickets.mp3';
+        if (season === 'WINTER') return '/sounds/wind.ogg';
+        if (day) return '/sounds/birds.ogg';
+        return '/sounds/crickets.ogg';
     };
 
     useEffect(() => {

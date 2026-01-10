@@ -110,7 +110,7 @@ const Projects = () => {
             tags: ['React', 'Node.js', 'Vite', 'Tailwind'],
             link: 'https://intersync.vercel.app/',
             icon: FaUserGraduate,
-            color: 'var(--primary)'
+            color: '#3B82F6'
         },
         {
             title: 'Snype',
@@ -118,7 +118,7 @@ const Projects = () => {
             tags: ['React', 'Automation', 'Analytics', 'SaaS'],
             link: 'https://snype-theta.vercel.app/',
             icon: FaBolt,
-            color: 'var(--text-accent)'
+            color: '#FEF90B'
         },
         {
             title: 'Jumia Navy',
@@ -126,7 +126,7 @@ const Projects = () => {
             tags: ['React', 'Vite', 'Commerce'],
             link: 'https://jumia-navy.vercel.app/',
             icon: FaShoppingCart,
-            color: 'var(--primary)'
+            color: '#1D4ED8'
         }
     ];
 

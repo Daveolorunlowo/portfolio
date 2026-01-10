@@ -39,18 +39,26 @@ const Contact = () => {
                             </button>
                         </a>
 
-                        <button style={{
-                            background: 'rgba(255,255,255,0.1)',
-                            color: 'white',
-                            padding: '1rem 2rem',
-                            borderRadius: '8px',
-                            fontWeight: '600',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.8rem'
-                        }}>
-                            <FaDownload /> Download Resume
-                        </button>
+                        <a href="/resume.pdf" download="Dave_Resume.pdf" style={{ textDecoration: 'none' }}>
+                            <button style={{
+                                background: 'rgba(255,255,255,0.1)',
+                                color: 'white',
+                                padding: '1rem 2rem',
+                                borderRadius: '8px',
+                                fontWeight: '600',
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '0.8rem',
+                                border: 'none',
+                                cursor: 'pointer',
+                                transition: 'background 0.3s'
+                            }}
+                                onMouseEnter={(e) => e.target.style.background = 'rgba(255,255,255,0.2)'}
+                                onMouseLeave={(e) => e.target.style.background = 'rgba(255,255,255,0.1)'}
+                            >
+                                <FaDownload /> Download Resume
+                            </button>
+                        </a>
                     </div>
                 </motion.div>
             </div>
