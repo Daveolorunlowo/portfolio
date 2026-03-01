@@ -1,12 +1,9 @@
 import { useRef, useEffect, useState } from 'react';
-import { FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
+
 
 const AnimatedBackground = () => {
     const canvasRef = useRef(null);
-    const audioRef = useRef(null);
     const mouseRef = useRef({ x: 0, y: 0 }); // Track mouse for parallax
-    const [muted, setMuted] = useState(true);
-    const [audioError, setAudioError] = useState(false);
     const [latitude, setLatitude] = useState(null); // Null means unknown/default to North
 
     useEffect(() => {
@@ -56,57 +53,7 @@ const AnimatedBackground = () => {
         return hour >= 6 && hour < 18;
     };
 
-    const getSoundSource = () => {
-        const season = getSeason();
-        const day = isDayTime();
 
-        if (season === 'WINTER') return '/sounds/wind.ogg';
-        if (day) return '/sounds/birds.ogg';
-        return '/sounds/crickets.ogg';
-    };
-
-    useEffect(() => {
-        const source = getSoundSource();
-
-        if (!audioRef.current) {
-            audioRef.current = new Audio(source);
-            audioRef.current.loop = true;
-            audioRef.current.volume = 0.5;
-        } else if (audioRef.current.getAttribute('src') !== source) {
-            const oldAudio = audioRef.current;
-            oldAudio.pause();
-
-            audioRef.current = new Audio(source);
-            audioRef.current.loop = true;
-            audioRef.current.volume = 0.5;
-            if (!muted) {
-                audioRef.current.play().catch(e => {
-                    console.log("Audio play failed:", e);
-                    setAudioError(true);
-                });
-            }
-        }
-
-        if (audioRef.current) {
-            if (muted) {
-                audioRef.current.pause();
-            } else {
-                audioRef.current.play().catch(e => {
-                    console.log("Audio auto-play blocked:", e);
-                    setAudioError(true);
-                });
-            }
-        }
-
-        return () => {
-            if (audioRef.current) audioRef.current.pause();
-        }
-    }, [muted, getSeason(), isDayTime()]);
-
-    const toggleMute = () => {
-        setMuted(!muted);
-        setAudioError(false);
-    };
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -322,32 +269,6 @@ const AnimatedBackground = () => {
                 }}
             />
 
-            <button
-                onClick={toggleMute}
-                style={{
-                    position: 'fixed',
-                    bottom: '2rem',
-                    right: '2rem',
-                    zIndex: 50,
-                    background: 'rgba(255, 255, 255, 0.1)',
-                    backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                    color: 'var(--text-primary)',
-                    width: '50px',
-                    height: '50px',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    cursor: 'pointer',
-                    fontSize: '1.2rem',
-                    transition: 'all 0.3s ease'
-                }}
-                onMouseEnter={e => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)'}
-                onMouseLeave={e => e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)'}
-            >
-                {muted ? <FaVolumeMute /> : <FaVolumeUp />}
-            </button>
         </>
     );
 };

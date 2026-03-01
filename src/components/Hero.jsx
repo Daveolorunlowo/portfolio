@@ -32,19 +32,6 @@ const Hero = () => {
                     className="glass-panel"
                     style={{ padding: '3rem', borderRadius: '24px' }}
                 >
-                    <motion.div variants={itemVariants} style={{
-                        display: 'inline-block',
-                        background: 'color-mix(in srgb, var(--primary) 10%, transparent)',
-                        color: 'var(--primary)',
-                        padding: '0.4rem 1rem',
-                        borderRadius: '20px',
-                        fontSize: '0.8rem',
-                        fontWeight: '600',
-                        marginBottom: '1.5rem',
-                        letterSpacing: '0.5px'
-                    }}>
-                        ● AVAILABLE FOR WORK
-                    </motion.div>
 
                     <motion.h1 variants={itemVariants} className="hero-title">
                         I'm <br />

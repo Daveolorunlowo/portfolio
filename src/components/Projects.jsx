@@ -3,101 +3,142 @@ import { FaExternalLinkAlt, FaGithub, FaBolt, FaUserGraduate, FaShoppingCart } f
 
 const ProjectCard = ({ title, desc, tags, link, github, icon: Icon, color, delay }) => (
     <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        whileHover={{ y: -15, scale: 1.02 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: delay }}
+        transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
         style={{
-            background: 'color-mix(in srgb, var(--primary) 5%, rgba(10, 14, 23, 0.6))',
-            backdropFilter: 'blur(20px)',
+            background: 'rgba(12, 14, 22, 0.75)',
+            backdropFilter: 'blur(24px)',
             borderRadius: '20px',
             overflow: 'hidden',
-            border: '1px solid color-mix(in srgb, var(--primary) 20%, rgba(255, 255, 255, 0.15))',
+            border: '1px solid rgba(255,255,255,0.07)',
             position: 'relative',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'space-between',
-            boxShadow: '0 10px 40px 0 rgba(0, 0, 0, 0.5)',
-            height: '100%'
+            height: '100%',
+            transition: 'border-color 0.3s, box-shadow 0.3s, transform 0.3s',
         }}
-        onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = color;
-            e.currentTarget.style.boxShadow = `0 20px 40px -5px ${color}20`; // Colored glow
+        whileHover={{ y: -8 }}
+        onMouseEnter={e => {
+            e.currentTarget.style.borderColor = color + '55';
+            e.currentTarget.style.boxShadow = `0 24px 60px -12px ${color}30`;
         }}
-        onMouseLeave={(e) => {
-            const primary = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim();
-            e.currentTarget.style.borderColor = `color-mix(in srgb, ${primary} 20%, rgba(255, 255, 255, 0.15))`;
-            e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+        onMouseLeave={e => {
+            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)';
+            e.currentTarget.style.boxShadow = 'none';
         }}
     >
-        {/* Gradient Header */}
+        {/* Coloured top accent bar */}
         <div style={{
-            height: '6px',
-            background: `linear-gradient(90deg, ${color}, transparent)`
+            height: 3,
+            background: `linear-gradient(90deg, ${color}, ${color}00)`,
+            flexShrink: 0,
         }} />
 
-        <div style={{ padding: '2.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2rem' }}>
+        {/* Subtle inner glow blob matching the accent colour */}
+        <div style={{
+            position: 'absolute',
+            top: -40, left: -40,
+            width: 180, height: 180,
+            borderRadius: '50%',
+            background: `radial-gradient(circle, ${color}18 0%, transparent 70%)`,
+            pointerEvents: 'none',
+        }} />
+
+        <div style={{ padding: '2rem', flex: 1, display: 'flex', flexDirection: 'column', gap: '1.4rem', position: 'relative' }}>
+
+            {/* Header row: icon + links */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                {/* Icon badge */}
                 <div style={{
-                    background: `${color}15`, // Very subtle tint
-                    padding: '1rem',
-                    borderRadius: '16px',
+                    width: 50, height: 50,
+                    borderRadius: '14px',
+                    background: color + '18',
+                    border: `1px solid ${color}30`,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
                     color: color,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
+                    flexShrink: 0,
                 }}>
-                    <Icon size={28} />
+                    <Icon size={22} />
                 </div>
 
-                <div style={{ display: 'flex', gap: '1rem' }}>
+                {/* Action icons */}
+                <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
                     {github && (
                         <motion.a
-                            href={github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ scale: 1.1, color: 'white' }}
-                            style={{ color: 'var(--text-secondary)', cursor: 'pointer' }}
+                            href={github} target="_blank" rel="noopener noreferrer"
+                            whileHover={{ scale: 1.15, color: '#fff' }}
+                            style={{ color: 'rgba(255,255,255,0.35)', lineHeight: 0 }}
                         >
-                            <FaGithub size={22} />
+                            <FaGithub size={19} />
                         </motion.a>
                     )}
                     {link && (
                         <motion.a
-                            href={link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ scale: 1.1, color: 'white' }}
-                            style={{ color: 'var(--text-secondary)', cursor: 'pointer' }}
+                            href={link} target="_blank" rel="noopener noreferrer"
+                            whileHover={{ scale: 1.15, color: '#fff' }}
+                            style={{ color: 'rgba(255,255,255,0.35)', lineHeight: 0 }}
                         >
-                            <FaExternalLinkAlt size={20} />
+                            <FaExternalLinkAlt size={17} />
                         </motion.a>
                     )}
                 </div>
             </div>
 
-            <h3 style={{ fontSize: '1.8rem', fontWeight: 'bold', marginBottom: '1rem', color: 'white' }}>{title}</h3>
+            {/* Title */}
+            <div>
+                <h3 style={{
+                    fontSize: '1.35rem', fontWeight: 700,
+                    color: '#fff', marginBottom: '0.6rem',
+                    letterSpacing: '-0.01em',
+                }}>
+                    {title}
+                </h3>
+                <p style={{
+                    color: 'rgba(255,255,255,0.5)',
+                    lineHeight: 1.7, fontSize: '0.9rem',
+                }}>
+                    {desc}
+                </p>
+            </div>
 
-            <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem', lineHeight: '1.7', fontSize: '1.05rem' }}>
-                {desc}
-            </p>
-
-            <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap', marginTop: 'auto' }}>
+            {/* Tags */}
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: 'auto' }}>
                 {tags.map((tag, i) => (
                     <span key={i} style={{
-                        background: 'rgba(255, 255, 255, 0.05)',
-                        color: 'var(--text-primary)',
-                        padding: '0.5rem 1rem',
+                        background: color + '12',
+                        color: color,
+                        border: `1px solid ${color}30`,
+                        padding: '0.3rem 0.75rem',
                         borderRadius: '100px',
-                        fontSize: '0.85rem',
-                        fontWeight: '500',
-                        border: '1px solid rgba(255, 255, 255, 0.05)'
+                        fontSize: '0.75rem',
+                        fontWeight: 500,
+                        letterSpacing: '0.03em',
                     }}>
                         {tag}
                     </span>
                 ))}
             </div>
+
+            {/* CTA link */}
+            {link && (
+                <motion.a
+                    href={link} target="_blank" rel="noopener noreferrer"
+                    whileHover={{ gap: '0.7rem' }}
+                    style={{
+                        display: 'inline-flex', alignItems: 'center', gap: '0.45rem',
+                        textDecoration: 'none',
+                        fontSize: '0.82rem', fontWeight: 600,
+                        color: color,
+                        letterSpacing: '0.04em',
+                        paddingTop: '0.25rem',
+                        transition: 'gap 0.2s',
+                    }}
+                >
+                    View Project <FaExternalLinkAlt size={11} />
+                </motion.a>
+            )}
         </div>
     </motion.div>
 );
@@ -110,7 +151,7 @@ const Projects = () => {
             tags: ['React', 'Node.js', 'Vite', 'Tailwind'],
             link: 'https://intersync.vercel.app/',
             icon: FaUserGraduate,
-            color: '#3B82F6'
+            color: '#3B82F6',
         },
         {
             title: 'Snype',
@@ -118,42 +159,46 @@ const Projects = () => {
             tags: ['React', 'Automation', 'Analytics', 'SaaS'],
             link: 'https://snype-theta.vercel.app/',
             icon: FaBolt,
-            color: '#FEF90B'
+            color: '#eab308',
         },
         {
             title: 'Jumia Navy',
-            desc: 'Jumia General Store - Your one-stop shop for everything! A comprehensive e-commerce experience.',
+            desc: 'Jumia General Store — Your one-stop shop for everything. A comprehensive e-commerce experience built for speed and scale.',
             tags: ['React', 'Vite', 'Commerce'],
             link: 'https://jumia-navy.vercel.app/',
             icon: FaShoppingCart,
-            color: '#1D4ED8'
-        }
+            color: '#8b5cf6',
+        },
     ];
 
     return (
         <section id="projects" className="section-padding" style={{ position: 'relative' }}>
             <div className="container">
+                {/* Section heading */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    style={{ marginBottom: '5rem', textAlign: 'center', maxWidth: '600px', margin: '0 auto 5rem' }}
+                    transition={{ duration: 0.6 }}
+                    style={{ textAlign: 'center', maxWidth: 560, margin: '0 auto 4rem' }}
                 >
                     <h2 className="section-title">
                         Featured <span className="text-gradient">Projects</span>
                     </h2>
                     <p className="section-subtitle">
-                        Delivering high-performance digital solutions. Exploring new technologies to build tools that matter.
+                        High-performance digital solutions built with modern technology stacks.
                     </p>
                 </motion.div>
 
+                {/* Card grid */}
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-                    gap: '2.5rem'
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                    gap: '1.75rem',
+                    alignItems: 'stretch',
                 }}>
                     {projects.map((project, i) => (
-                        <ProjectCard key={i} {...project} delay={i * 0.15} />
+                        <ProjectCard key={i} {...project} delay={i * 0.12} />
                     ))}
                 </div>
             </div>
