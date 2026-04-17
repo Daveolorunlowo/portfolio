@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaExternalLinkAlt, FaGithub, FaBolt, FaUserGraduate, FaShoppingCart } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaGithub, FaBolt, FaUserGraduate, FaShoppingCart, FaBuilding, FaCube, FaBirthdayCake, FaCompass } from 'react-icons/fa';
 
 const ProjectCard = ({ title, desc, tags, link, github, icon: Icon, color, delay }) => (
     <motion.div
@@ -150,6 +150,7 @@ const Projects = () => {
             desc: 'A comprehensive platform streamlining the internship search and application process. Connecting ambitious students with opportunities that perfectly match their skills.',
             tags: ['React', 'Node.js', 'Vite', 'Tailwind'],
             link: 'https://intersync.vercel.app/',
+            github: 'https://github.com/Daveolorunlowo',
             icon: FaUserGraduate,
             color: '#3B82F6',
         },
@@ -158,6 +159,7 @@ const Projects = () => {
             desc: 'The all-in-one platform for modern professionals to streamline workflows. Featuring real-time analytics, automated workflows, and secure payments to boost productivity.',
             tags: ['React', 'Automation', 'Analytics', 'SaaS'],
             link: 'https://snype-theta.vercel.app/',
+            github: 'https://github.com/Daveolorunlowo',
             icon: FaBolt,
             color: '#eab308',
         },
@@ -166,8 +168,54 @@ const Projects = () => {
             desc: 'Jumia General Store — Your one-stop shop for everything. A comprehensive e-commerce experience built for speed and scale.',
             tags: ['React', 'Vite', 'Commerce'],
             link: 'https://jumia-navy.vercel.app/',
+            github: 'https://github.com/Daveolorunlowo',
             icon: FaShoppingCart,
             color: '#8b5cf6',
+        },
+        {
+            title: 'KSOME Portal',
+            desc: 'A sophisticated worker administration system with a premium glassmorphism interface and real-time performance tracking.',
+            tags: ['React', 'Vite', 'Framer', 'Lucide'],
+            link: 'https://github.com/Daveolorunlowo',
+            github: 'https://github.com/Daveolorunlowo',
+            icon: FaBuilding,
+            color: '#10B981',
+        },
+        {
+            title: 'Evolve Fitness',
+            desc: 'A futuristic fitness platform featuring cybernetic avatar evolution and immersive real-time workout logging.',
+            tags: ['React Native', 'Expo', 'Zustand', 'Node.js'],
+            link: 'https://github.com/Daveolorunlowo',
+            github: 'https://github.com/Daveolorunlowo',
+            icon: FaBolt,
+            color: '#F43F5E',
+        },
+        {
+            title: 'CBT 3D Interactive',
+            desc: 'An immersive 3D landing page leveraging Three.js and custom WebGL shaders for high-performance visual storytelling.',
+            tags: ['Three.js', 'WebGL', 'React', 'GLSL'],
+            link: 'https://github.com/Daveolorunlowo',
+            github: 'https://github.com/Daveolorunlowo',
+            icon: FaCube,
+            color: '#6366F1',
+        },
+        {
+            title: 'Deborah\'s Celebration',
+            desc: 'A personalized celebratory platform featuring interactive birthday countdowns, games, and custom animations.',
+            tags: ['React', 'CSS', 'Framer', 'Birthday'],
+            link: 'https://github.com/Daveolorunlowo',
+            github: 'https://github.com/Daveolorunlowo',
+            icon: FaBirthdayCake,
+            color: '#EC4899',
+        },
+        {
+            title: 'Gemini Browser Clone',
+            desc: 'A pixel-perfect recreation of the Gemini AI interface focusing on advanced UI interactions and responsive layouts.',
+            tags: ['React', 'Tailwind', 'AI', 'UI/UX'],
+            link: 'https://github.com/Daveolorunlowo',
+            github: 'https://github.com/Daveolorunlowo',
+            icon: FaCompass,
+            color: '#3B82F6',
         },
     ];
 
