@@ -16,7 +16,7 @@ const Footer = () => {
                 </div>
 
                 <div className="footer-socials">
-                    <a href="https://github.com/Davolily" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
+                    <a href="https://github.com/Daveolorunlowo" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
                         <FaGithub style={{ color: 'var(--text-secondary)', fontSize: '1.2rem' }} />
                     </a>
                     <a href="https://linkedin.com/in/dave-olorunlowo-b9248339b/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>

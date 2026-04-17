@@ -63,7 +63,7 @@ const Hero = () => {
 
                         <div style={{ display: 'flex', gap: '1rem' }}>
                             {[
-                                { Icon: FaGithub, href: 'https://github.com/Davolily' },
+                                { Icon: FaGithub, href: 'https://github.com/Daveolorunlowo' },
                                 { Icon: FaLinkedin, href: 'https://linkedin.com/in/dave-olorunlowo-b9248339b/' },
                                 { Icon: FaTwitter, href: 'https://x.com/Dave45O' }
                             ].map(({ Icon, href }, idx) => (
