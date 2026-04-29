@@ -10,15 +10,8 @@ const SkillTag = ({ icon: Icon, name, color, index }) => (
         whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
         viewport={{ once: true }}
         transition={{ duration: 0.3, delay: index * 0.05 }}
-        style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.8rem',
-            background: 'color-mix(in srgb, var(--primary) 10%, var(--bg-tertiary))',
-            padding: '0.8rem 1.5rem',
-            borderRadius: '12px',
-            border: '1px solid color-mix(in srgb, var(--primary) 15%, rgba(255,255,255,0.05))'
-        }}>
+        className="skill-tag"
+    >
         <Icon style={{ color: color }} size={20} />
         <span style={{ fontWeight: '500', fontSize: '0.9rem' }}>{name}</span>
     </motion.div>

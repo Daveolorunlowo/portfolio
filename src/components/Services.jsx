@@ -1,89 +1,75 @@
-
-import { FaPenNib, FaCode, FaMobileAlt, FaPalette } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { FaCode, FaRocket, FaMobileAlt, FaDatabase } from 'react-icons/fa';
 
 const ServiceCard = ({ icon: Icon, title, desc, delay }) => (
     <motion.div
-        className="glass-panel"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        whileHover={{ scale: 1.05 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: delay }}
-        style={{
-            padding: '2rem',
-            transition: 'all 0.3s',
-            cursor: 'pointer',
-            position: 'relative',
-            overflow: 'hidden'
-        }}
-        onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-10px)';
-            const primary = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim();
-            e.currentTarget.style.boxShadow = `0 10px 30px ${primary}40`;
-        }}
-        onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '';
-        }}
+        transition={{ duration: 0.5, delay }}
+        className="glass-panel"
+        style={{ padding: '2rem', textAlign: 'center' }}
     >
-        <div style={{
-            background: 'color-mix(in srgb, var(--primary) 10%, transparent)',
-            width: '50px',
-            height: '50px',
-            borderRadius: '12px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginBottom: '1.5rem',
-            color: 'var(--primary)'
+        <div style={{ 
+            width: '60px', height: '60px', 
+            background: 'var(--primary)', 
+            borderRadius: '50%', 
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            margin: '0 auto 1.5rem',
+            color: 'white',
+            boxShadow: '0 0 20px var(--primary)'
         }}>
             <Icon size={24} />
         </div>
-        <h3 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '1rem' }}>{title}</h3>
-        <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6' }}>{desc}</p>
+        <h3 style={{ marginBottom: '1rem', fontSize: '1.25rem' }}>{title}</h3>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: '1.6' }}>{desc}</p>
     </motion.div>
 );
 
 const Services = () => {
     const services = [
         {
-            icon: FaPenNib,
-            title: 'UI/UX Designer',
-            desc: 'Creating intuitive, user-centric, and aesthetically pleasing interfaces that drive engagement.'
-        },
-        {
             icon: FaCode,
-            title: 'Fullstack Dev',
-            desc: 'Building robust, scalable web applications from front-end to back-end architecture.'
+            title: 'Web Development',
+            desc: 'Building responsive, high-performance web applications using modern frameworks like React and Node.js.'
         },
         {
             icon: FaMobileAlt,
-            title: 'Mobile App Dev',
-            desc: 'Developing native and cross-platform mobile apps for iOS and Android ecosystems.'
+            title: 'Mobile Solutions',
+            desc: 'Crafting cross-platform mobile experiences with React Native for seamless performance on iOS and Android.'
         },
         {
-            icon: FaPalette,
-            title: 'Graphics Designer',
-            desc: 'Crafting compelling visual assets, branding materials, and marketing collateral.'
+            icon: FaRocket,
+            title: 'Performance Optimization',
+            desc: 'Enhancing site speed and SEO to ensure your digital products reach and engage the widest possible audience.'
+        },
+        {
+            icon: FaDatabase,
+            title: 'Backend Architecture',
+            desc: 'Designing scalable and secure server-side solutions and databases to power complex applications.'
         }
     ];
 
     return (
         <section id="services" className="section-padding">
             <div className="container">
-                <h2 className="section-title">My Services</h2>
-                <p className="section-subtitle">
-                    Delivering high-quality digital solutions across various domains with precision and creativity.
-                </p>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    style={{ textAlign: 'center', marginBottom: '4rem' }}
+                >
+                    <h2 className="section-title">My <span className="text-gradient">Services</span></h2>
+                    <p className="section-subtitle" style={{ margin: '0 auto' }}>Specialized solutions tailored to your business needs.</p>
+                </motion.div>
 
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-                    gap: '2rem'
+                <div style={{ 
+                    display: 'grid', 
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
+                    gap: '2rem' 
                 }}>
-                    {services.map((s, i) => (
-                        <ServiceCard key={i} {...s} delay={i * 0.1} />
+                    {services.map((service, i) => (
+                        <ServiceCard key={i} {...service} delay={i * 0.1} />
                     ))}
                 </div>
             </div>

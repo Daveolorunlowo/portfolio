@@ -181,42 +181,6 @@ const Projects = () => {
             icon: FaBuilding,
             color: '#10B981',
         },
-        {
-            title: 'Evolve Fitness',
-            desc: 'A futuristic fitness platform featuring cybernetic avatar evolution and immersive real-time workout logging.',
-            tags: ['React Native', 'Expo', 'Zustand', 'Node.js'],
-            link: 'https://github.com/Daveolorunlowo',
-            github: 'https://github.com/Daveolorunlowo',
-            icon: FaBolt,
-            color: '#F43F5E',
-        },
-        {
-            title: 'CBT 3D Interactive',
-            desc: 'An immersive 3D landing page leveraging Three.js and custom WebGL shaders for high-performance visual storytelling.',
-            tags: ['Three.js', 'WebGL', 'React', 'GLSL'],
-            link: 'https://github.com/Daveolorunlowo',
-            github: 'https://github.com/Daveolorunlowo',
-            icon: FaCube,
-            color: '#6366F1',
-        },
-        {
-            title: 'Deborah\'s Celebration',
-            desc: 'A personalized celebratory platform featuring interactive birthday countdowns, games, and custom animations.',
-            tags: ['React', 'CSS', 'Framer', 'Birthday'],
-            link: 'https://github.com/Daveolorunlowo',
-            github: 'https://github.com/Daveolorunlowo',
-            icon: FaBirthdayCake,
-            color: '#EC4899',
-        },
-        {
-            title: 'Gemini Browser Clone',
-            desc: 'A pixel-perfect recreation of the Gemini AI interface focusing on advanced UI interactions and responsive layouts.',
-            tags: ['React', 'Tailwind', 'AI', 'UI/UX'],
-            link: 'https://github.com/Daveolorunlowo',
-            github: 'https://github.com/Daveolorunlowo',
-            icon: FaCompass,
-            color: '#3B82F6',
-        },
     ];
 
     return (

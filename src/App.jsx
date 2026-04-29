@@ -5,6 +5,7 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Services from './components/Services';
 import AnimatedBackground from './components/AnimatedBackground';
 
 function App() {
@@ -78,6 +79,7 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <Services />
         <Projects />
         <Skills />
         <Contact />
